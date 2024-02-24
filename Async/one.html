@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Async Functions</h1>
+
+    <button id="stop" onclick="onStop()">Stop</button>
+</body>
+
+<script>
+    const changeText = () => {
+        document.querySelector('h1').innerHTML = 'Buy Me a Coffee';
+    };
+
+    const TextChangeEvent = setTimeout(changeText, 2000);
+
+    function onStop() {
+
+        clearTimeout(TextChangeEvent);
+
+        console.log('Event is Stopped');
+
+    }
+    setTimeout(function() {
+        console.log("Ayush Das");
+    }, 2000); //After 2 seconds the function will execute
+</script>
+
+</html>

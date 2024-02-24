@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Change Color of Backgrounds</h1>
+
+    <button id="Start" onclick="onStart()">Start</button>
+
+    <button id="stop" onclick="onStop()">Stop</button>
+</body>
+
+
+<script>
+    //Generate Random Color using HexCodes
+    const randomColor = () => {
+        const hex = "0123456789abcdef"; //hex Range
+        let color = "#";
+
+
+        //add 6 values to color
+        for (let i = 0; i < 6; i++) {
+
+            color += hex[Math.floor(Math.random() * 16)];
+
+        }
+        console.log(color);
+
+        return color;
+    }
+    let id;
+
+    function onStart() {
+        if (id == null) { //Safety check
+            id = setInterval(() => {
+                document.body.style.backgroundColor = randomColor()
+            }, 1000);
+
+        }
+    }
+
+    function onStop() {
+        clearInterval(id);
+        id = null; //Dereferencing the value
+    }
+</script>
+
+</html>
